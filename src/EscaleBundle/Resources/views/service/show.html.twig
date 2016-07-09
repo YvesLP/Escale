@@ -5,72 +5,78 @@
 
     <table>
         <tbody>
+{#
             <tr>
                 <th>Id</th>
                 <td>{{ service.id }}</td>
             </tr>
+#}
             <tr>
-                <th>Servetat</th>
-                <td>{% if service.servEtat %}Yes{% else %}No{% endif %}</td>
+                <th>Etat (Actif/Inactif)</th>
+                <td>{% if service.servEtat %}Actif{% else %}Inactif{% endif %}</td>
             </tr>
             <tr>
-                <th>Servnom</th>
+                <th>Nom</th>
                 <td>{{ service.servNom }}</td>
             </tr>
             <tr>
-                <th>Servgpslat</th>
+                <th>Latitude</th>
                 <td>{{ service.servGpsLat }}</td>
             </tr>
             <tr>
-                <th>Servgpslng</th>
+                <th>Longitude</th>
                 <td>{{ service.servGpsLng }}</td>
             </tr>
             <tr>
-                <th>Servinfos</th>
+                <th>Onformations générales</th>
                 <td>{{ service.servInfos }}</td>
             </tr>
             <tr>
-                <th>Servemail</th>
+                <th>Email</th>
                 <td>{{ service.servEmail }}</td>
             </tr>
             <tr>
-                <th>Servtel</th>
+                <th>Téléphone</th>
                 <td>{{ service.servTel }}</td>
             </tr>
             <tr>
-                <th>Servadr</th>
+                <th>Adresse</th>
                 <td>{{ service.servAdr }}</td>
             </tr>
+{#
             <tr>
                 <th>Servadr2</th>
                 <td>{{ service.servAdr2 }}</td>
             </tr>
+#}
             <tr>
-                <th>Servcp</th>
+                <th>Code postal</th>
                 <td>{{ service.servCp }}</td>
             </tr>
             <tr>
-                <th>Servville</th>
+                <th>Ville</th>
                 <td>{{ service.servVille }}</td>
             </tr>
             <tr>
-                <th>Servpays</th>
+                <th>Pays</th>
                 <td>{{ service.servPays }}</td>
             </tr>
             <tr>
-                <th>Servphoto</th>
+                <th>Photo</th>
                 <td>{{ service.servPhoto }}</td>
             </tr>
             <tr>
-                <th>Servdesc</th>
+                <th>Description</th>
                 <td>{{ service.servDesc }}</td>
             </tr>
+{#
             <tr>
-                <th>Servsite</th>
+                <th>Site communautaire</th>
                 <td>{{ service.servSite }}</td>
             </tr>
+#}
             <tr>
-                <th>Servlikes</th>
+                <th>Likes</th>
                 <td>{{ service.servLikes }}</td>
             </tr>
         </tbody>
@@ -78,10 +84,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('admin_service_index') }}">Back to the list</a>
+            <a href="{{ path('admin_service_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('admin_service_edit', { 'id': service.id }) }}">Edit</a>
+            <a href="{{ path('admin_service_edit', { 'id': service.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

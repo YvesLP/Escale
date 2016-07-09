@@ -5,27 +5,29 @@
 
     <table>
         <tbody>
+{#
             <tr>
                 <th>Id</th>
                 <td>{{ visite.id }}</td>
             </tr>
+#}
             <tr>
                 <th>Visitstart</th>
-                <td>{% if visite.visitStart %}{{ visite.visitStart|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if visite.visitStart %}{{ visite.visitStart|date('d-m-Y H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Visitend</th>
-                <td>{% if visite.visitEnd %}{{ visite.visitEnd|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if visite.visitEnd %}{{ visite.visitEnd|date('d-m-Y H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('visite_index') }}">Back to the list</a>
+            <a href="{{ path('visite_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('visite_edit', { 'id': visite.id }) }}">Edit</a>
+            <a href="{{ path('visite_edit', { 'id': visite.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

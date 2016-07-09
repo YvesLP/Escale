@@ -1,25 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Sport list</h1>
+    <h1>Sports</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Sportetat</th>
-                <th>Sportlib</th>
-                <th>Sportpicto</th>
-                <th>Sportphoto</th>
-                <th>Sportsite</th>
+                {#<th>Id</th>#}
+                <th>Etat (Actif/Inactif)</th>
+                <th>Libellé</th>
+                <th>Pictogramme</th>
+                <th>Photo</th>
+                <th>Site</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for sport in sports %}
             <tr>
-                <td><a href="{{ path('admin_sport_show', { 'id': sport.id }) }}">{{ sport.id }}</a></td>
-                <td>{% if sport.sportEtat %}Yes{% else %}No{% endif %}</td>
+                {#<td><a href="{{ path('admin_sport_show', { 'id': sport.id }) }}">{{ sport.id }}</a></td>#}
+                <td>{% if sport.sportEtat %}Actif{% else %}Inactif{% endif %}</td>
                 <td>{{ sport.sportLib }}</td>
                 <td>{{ sport.sportPicto }}</td>
                 <td>{{ sport.sportPhoto }}</td>
@@ -27,10 +27,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('admin_sport_show', { 'id': sport.id }) }}">show</a>
+                            <a href="{{ path('admin_sport_show', { 'id': sport.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('admin_sport_edit', { 'id': sport.id }) }}">edit</a>
+                            <a href="{{ path('admin_sport_edit', { 'id': sport.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>

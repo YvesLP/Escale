@@ -5,44 +5,46 @@
 
     <table>
         <tbody>
+{#
             <tr>
                 <th>Id</th>
                 <td>{{ spot.id }}</td>
             </tr>
+#}
             <tr>
-                <th>Spotetat</th>
-                <td>{% if spot.spotEtat %}Yes{% else %}No{% endif %}</td>
+                <th>Etat (Actif/Inactif)</th>
+                <td>{% if spot.spotEtat %}Actif{% else %}Inactif{% endif %}</td>
             </tr>
             <tr>
-                <th>Spotnom</th>
+                <th>Nom</th>
                 <td>{{ spot.spotNom }}</td>
             </tr>
             <tr>
-                <th>Spotgpslat</th>
+                <th>Latitude</th>
                 <td>{{ spot.spotGpsLat }}</td>
             </tr>
             <tr>
-                <th>Spotgpslng</th>
+                <th>Longitude</th>
                 <td>{{ spot.spotGpsLng }}</td>
             </tr>
             <tr>
-                <th>Spotadr</th>
+                <th>Adresse</th>
                 <td>{{ spot.spotAdr }}</td>
             </tr>
             <tr>
-                <th>Spotphoto</th>
+                <th>Photo</th>
                 <td>{{ spot.spotPhoto }}</td>
             </tr>
             <tr>
-                <th>Spotdesc</th>
+                <th>Description</th>
                 <td>{{ spot.spotDesc }}</td>
             </tr>
             <tr>
-                <th>Spotsite</th>
+                <th>Site Arrêté municipal</th>
                 <td>{{ spot.spotSite }}</td>
             </tr>
             <tr>
-                <th>Spotlikes</th>
+                <th>Likes</th>
                 <td>{{ spot.spotLikes }}</td>
             </tr>
         </tbody>
@@ -50,10 +52,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('admin_spot_index') }}">Back to the list</a>
+            <a href="{{ path('admin_spot_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('admin_spot_edit', { 'id': spot.id }) }}">Edit</a>
+            <a href="{{ path('admin_spot_edit', { 'id': spot.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

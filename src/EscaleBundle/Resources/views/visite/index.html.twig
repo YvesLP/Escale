@@ -1,30 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Visite list</h1>
+    <h1>Visites</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Visitstart</th>
-                <th>Visitend</th>
+                {#<th>Id</th>#}
+                <th>Arrivée</th>
+                <th>Départ</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for visite in visites %}
             <tr>
-                <td><a href="{{ path('visite_show', { 'id': visite.id }) }}">{{ visite.id }}</a></td>
-                <td>{% if visite.visitStart %}{{ visite.visitStart|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if visite.visitEnd %}{{ visite.visitEnd|date('Y-m-d H:i:s') }}{% endif %}</td>
+                {#<td><a href="{{ path('visite_show', { 'id': visite.id }) }}">{{ visite.id }}</a></td>#}
+                <td>{% if visite.visitStart %}{{ visite.visitStart|date('d-m-Y H:i:s') }}{% endif %}</td>
+                <td>{% if visite.visitEnd %}{{ visite.visitEnd|date('d-m-Y H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('visite_show', { 'id': visite.id }) }}">show</a>
+                            <a href="{{ path('visite_show', { 'id': visite.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('visite_edit', { 'id': visite.id }) }}">edit</a>
+                            <a href="{{ path('visite_edit', { 'id': visite.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>

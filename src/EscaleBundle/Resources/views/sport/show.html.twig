@@ -5,28 +5,30 @@
 
     <table>
         <tbody>
+{#
             <tr>
                 <th>Id</th>
                 <td>{{ sport.id }}</td>
             </tr>
+#}
             <tr>
-                <th>Sportetat</th>
-                <td>{% if sport.sportEtat %}Yes{% else %}No{% endif %}</td>
+                <th>Etat (Actif/Inactif)</th>
+                <td>{% if sport.sportEtat %}Actif{% else %}Inactif{% endif %}</td>
             </tr>
             <tr>
-                <th>Sportlib</th>
+                <th>Libellé</th>
                 <td>{{ sport.sportLib }}</td>
             </tr>
             <tr>
-                <th>Sportpicto</th>
+                <th>Pictogramme</th>
                 <td>{{ sport.sportPicto }}</td>
             </tr>
             <tr>
-                <th>Sportphoto</th>
+                <th>Photo</th>
                 <td>{{ sport.sportPhoto }}</td>
             </tr>
             <tr>
-                <th>Sportsite</th>
+                <th>Site communautaire</th>
                 <td>{{ sport.sportSite }}</td>
             </tr>
         </tbody>
@@ -34,10 +36,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('admin_sport_index') }}">Back to the list</a>
+            <a href="{{ path('admin_sport_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('admin_sport_edit', { 'id': sport.id }) }}">Edit</a>
+            <a href="{{ path('admin_sport_edit', { 'id': sport.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
