@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Spot</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ spot.id }}</td>
+            </tr>
+            <tr>
+                <th>Spotetat</th>
+                <td>{% if spot.spotEtat %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Spotnom</th>
+                <td>{{ spot.spotNom }}</td>
+            </tr>
+            <tr>
+                <th>Spotgpslat</th>
+                <td>{{ spot.spotGpsLat }}</td>
+            </tr>
+            <tr>
+                <th>Spotgpslng</th>
+                <td>{{ spot.spotGpsLng }}</td>
+            </tr>
+            <tr>
+                <th>Spotadr</th>
+                <td>{{ spot.spotAdr }}</td>
+            </tr>
+            <tr>
+                <th>Spotphoto</th>
+                <td>{{ spot.spotPhoto }}</td>
+            </tr>
+            <tr>
+                <th>Spotdesc</th>
+                <td>{{ spot.spotDesc }}</td>
+            </tr>
+            <tr>
+                <th>Spotsite</th>
+                <td>{{ spot.spotSite }}</td>
+            </tr>
+            <tr>
+                <th>Spotlikes</th>
+                <td>{{ spot.spotLikes }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_spot_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_spot_edit', { 'id': spot.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

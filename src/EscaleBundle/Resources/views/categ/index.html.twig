@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>categ list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Catlib</th>
+                <th>Catpicto</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categ in categs %}
+            <tr>
+                <td><a href="{{ path('admin_categ_show', { 'id': categ.id }) }}">{{ categ.id }}</a></td>
+                <td>{{ categ.catLib }}</td>
+                <td>{{ categ.catPicto }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_categ_show', { 'id': categ.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_categ_edit', { 'id': categ.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_categ_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

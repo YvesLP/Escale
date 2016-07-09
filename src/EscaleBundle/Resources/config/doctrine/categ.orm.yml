@@ -1,0 +1,21 @@
+EscaleBundle\Entity\categ:
+    type: entity
+    table: null
+    repositoryClass: EscaleBundle\Repository\categRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        catLib:
+            type: string
+            length: '100'
+            unique: true
+            column: cat_lib
+        catPicto:
+            type: string
+            length: '50'
+            column: cat_picto
+    lifecycleCallbacks: {  }

@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Service</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ service.id }}</td>
+            </tr>
+            <tr>
+                <th>Servetat</th>
+                <td>{% if service.servEtat %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Servnom</th>
+                <td>{{ service.servNom }}</td>
+            </tr>
+            <tr>
+                <th>Servgpslat</th>
+                <td>{{ service.servGpsLat }}</td>
+            </tr>
+            <tr>
+                <th>Servgpslng</th>
+                <td>{{ service.servGpsLng }}</td>
+            </tr>
+            <tr>
+                <th>Servinfos</th>
+                <td>{{ service.servInfos }}</td>
+            </tr>
+            <tr>
+                <th>Servemail</th>
+                <td>{{ service.servEmail }}</td>
+            </tr>
+            <tr>
+                <th>Servtel</th>
+                <td>{{ service.servTel }}</td>
+            </tr>
+            <tr>
+                <th>Servadr</th>
+                <td>{{ service.servAdr }}</td>
+            </tr>
+            <tr>
+                <th>Servadr2</th>
+                <td>{{ service.servAdr2 }}</td>
+            </tr>
+            <tr>
+                <th>Servcp</th>
+                <td>{{ service.servCp }}</td>
+            </tr>
+            <tr>
+                <th>Servville</th>
+                <td>{{ service.servVille }}</td>
+            </tr>
+            <tr>
+                <th>Servpays</th>
+                <td>{{ service.servPays }}</td>
+            </tr>
+            <tr>
+                <th>Servphoto</th>
+                <td>{{ service.servPhoto }}</td>
+            </tr>
+            <tr>
+                <th>Servdesc</th>
+                <td>{{ service.servDesc }}</td>
+            </tr>
+            <tr>
+                <th>Servsite</th>
+                <td>{{ service.servSite }}</td>
+            </tr>
+            <tr>
+                <th>Servlikes</th>
+                <td>{{ service.servLikes }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_service_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_service_edit', { 'id': service.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

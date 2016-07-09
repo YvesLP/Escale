@@ -1,0 +1,96 @@
+EscaleBundle\Entity\Service:
+    type: entity
+    table: null
+    repositoryClass: EscaleBundle\Repository\ServiceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        servEtat:
+            type: boolean
+            column: serv_etat
+        servNom:
+            type: string
+            length: '100'
+            column: serv_nom
+        servGpsLat:
+            type: string
+            length: '15'
+            column: serv_gps_lat
+        servGpsLng:
+            type: string
+            length: '15'
+            column: serv_gps_lng
+        servInfos:
+            type: text
+            column: serv_infos
+        servEmail:
+            type: string
+            length: '100'
+            nullable: true
+            column: serv_email
+        servTel:
+            type: string
+            length: '30'
+            nullable: true
+            column: serv_tel
+        servAdr:
+            type: string
+            length: '100'
+            nullable: true
+            column: serv_adr
+        servAdr2:
+            type: string
+            length: '100'
+            nullable: true
+            column: serv_adr2
+        servCp:
+            type: string
+            length: '20'
+            column: serv_cp
+        servVille:
+            type: string
+            length: '50'
+            column: serv_ville
+        servPays:
+            type: string
+            length: '50'
+            nullable: true
+            column: serv_pays
+        servPhoto:
+            type: string
+            length: '50'
+            nullable: true
+            column: serv_photo
+        servDesc:
+            type: text
+            nullable: true
+            column: serv_desc
+        servSite:
+            type: string
+            length: 255
+            nullable: true
+            column: serv_site
+        servLikes:
+            type: integer
+            nullable: true
+            column: serv_likes
+    manyToOne:
+        servIduser:
+            targetEntity: EscaleBundle\Entity\User
+            joinColumn:
+                name: serv_iduser
+                referencedColumnName: id
+        servIdcat:
+            targetEntity: EscaleBundle\Entity\categ
+            joinColumn:
+                name: serv_idcat
+                referencedColumnName: id
+    manyToMany:
+        spots:
+            targetEntity: EscaleBundle\Entity\Spot
+            mappedBy: services
+    lifecycleCallbacks: {  }

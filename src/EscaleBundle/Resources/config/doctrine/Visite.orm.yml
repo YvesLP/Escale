@@ -1,0 +1,29 @@
+EscaleBundle\Entity\Visite:
+    type: entity
+    table: null
+    repositoryClass: EscaleBundle\Repository\VisiteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        visitStart:
+            type: datetime
+            column: visit_start
+        visitEnd:
+            type: datetime
+            column: visit_end
+    manyToOne:
+        visitIduser:
+            targetEntity: EscaleBundle\Entity\User
+            joinColumn:
+                name: visit_iduser
+                referencedColumnName: id
+        visitIdspot:
+            targetEntity: EscaleBundle\Entity\Spot
+            joinColumn:
+                name: visit_idspot
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

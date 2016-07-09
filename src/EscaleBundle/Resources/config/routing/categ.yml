@@ -1,0 +1,24 @@
+admin_categ_index:
+    path:     /
+    defaults: { _controller: "EscaleBundle:categ:index" }
+    methods:  GET
+
+admin_categ_show:
+    path:     /{id}/show
+    defaults: { _controller: "EscaleBundle:categ:show" }
+    methods:  GET
+
+admin_categ_new:
+    path:     /new
+    defaults: { _controller: "EscaleBundle:categ:new" }
+    methods:  [GET, POST]
+
+admin_categ_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EscaleBundle:categ:edit" }
+    methods:  [GET, POST]
+
+admin_categ_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EscaleBundle:categ:delete" }
+    methods:  DELETE

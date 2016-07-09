@@ -1,0 +1,37 @@
+EscaleBundle\Entity\Sport:
+    type: entity
+    table: null
+    repositoryClass: EscaleBundle\Repository\SportRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        sportEtat:
+            type: boolean
+            column: sport_etat
+        sportLib:
+            type: string
+            length: '100'
+            column: sport_lib
+        sportPicto:
+            type: string
+            length: '50'
+            column: sport_picto
+        sportPhoto:
+            type: string
+            length: '50'
+            nullable: true
+            column: sport_photo
+        sportSite:
+            type: string
+            length: 255
+            nullable: true
+            column: sport_site
+    manyToMany:
+        users:
+            targetEntity: EscaleBundle\Entity\User
+            mappedBy: sports
+    lifecycleCallbacks: {  }
