@@ -3,11 +3,27 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+
+            {# Appel Materialize CSS #}
+            <link rel="stylesheet" href="{{ asset('bundles/escale/css/materialize.css') }}">
+
+            {# Appel CSS perso #}
+            <link rel="stylesheet" href="{{ asset('bundles/escale/css/style.css') }}">
+
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+
+            {# Appel jQuery #}
+            <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+            {# Appel Materialize JS #}
+            <script src="{{ asset('bundles/escale/js/materialize.min.js') }}"></script>
+
+        {% endblock %}
     </body>
 </html>
