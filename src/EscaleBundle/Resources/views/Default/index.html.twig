@@ -1,1 +1,18 @@
-Hello World!
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <button id="geolocalisation_button">Me localiser</button>
+    <div id="map"></div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDn52jFrq8R0F1RoukKhtsjINbPDa1v984&libraries=places&callback=initAutocomplete"
+    async defer></script>
+
+{% endblock %}
