@@ -1,0 +1,3 @@
+escale_homepage:
+    path:     /
+    defaults: { _controller: EscaleBundle:Default:index }
