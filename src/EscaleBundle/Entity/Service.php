@@ -9,6 +9,17 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Service
 {
+
+    public function __toString()
+    {
+        return $this->getServNom();
+    }
+
+    //
+    //  CODE AUTO-GENERE
+    //
+
+
     /**
      * @var integer
      */
@@ -100,7 +111,7 @@ class Service
     private $servIduser;
 
     /**
-     * @var \EscaleBundle\Entity\Categ
+     * @var \EscaleBundle\Entity\categ
      */
     private $servIdcat;
 
@@ -521,10 +532,10 @@ class Service
     /**
      * Set servIdcat
      *
-     * @param \EscaleBundle\Entity\Categ $servIdcat
+     * @param \EscaleBundle\Entity\categ $servIdcat
      * @return Service
      */
-    public function setServIdcat(\EscaleBundle\Entity\Categ $servIdcat = null)
+    public function setServIdcat(\EscaleBundle\Entity\categ $servIdcat = null)
     {
         $this->servIdcat = $servIdcat;
 
@@ -534,7 +545,7 @@ class Service
     /**
      * Get servIdcat
      *
-     * @return \EscaleBundle\Entity\Categ 
+     * @return \EscaleBundle\Entity\categ 
      */
     public function getServIdcat()
     {

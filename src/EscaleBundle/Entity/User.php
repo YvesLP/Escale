@@ -9,13 +9,24 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User
 {
+
+    public function __toString()
+    {
+        return $this->getUserPseudo();
+    }
+
+    //
+    //  CODE AUTO-GENERE
+    //
+
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
     /**
-     * @var bool
+     * @var boolean
      */
     private $userPro;
 
@@ -79,6 +90,18 @@ class User
      */
     private $userPhoto;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $sports;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->sports = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -114,9 +137,9 @@ class User
     }
 
     /**
-     * Set user
+     * Set userPseudo
      *
-     * @param string $user
+     * @param string $userPseudo
      * @return User
      */
     public function setUserPseudo($userPseudo)
@@ -127,7 +150,7 @@ class User
     }
 
     /**
-     * Get user
+     * Get userPseudo
      *
      * @return string 
      */
@@ -387,46 +410,6 @@ class User
     public function getUserPhoto()
     {
         return $this->userPhoto;
-    }
-    /**
-     * @var string
-     */
-    private $user;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $sports;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->sports = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Set user
-     *
-     * @param string $user
-     * @return User
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return string 
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 
     /**

@@ -9,13 +9,23 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Sport
 {
+
+    public function __toString()
+    {
+        return $this->getSportLib();
+    }
+
+    //
+    //  CODE AUTO-GENERE
+    //
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
     /**
-     * @var bool
+     * @var boolean
      */
     private $sportEtat;
 
@@ -39,6 +49,24 @@ class Sport
      */
     private $sportSite;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $users;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $spots;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->spots = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -164,18 +192,6 @@ class Sport
     {
         return $this->sportSite;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $users;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add users
@@ -208,5 +224,38 @@ class Sport
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Add spots
+     *
+     * @param \EscaleBundle\Entity\Spot $spots
+     * @return Sport
+     */
+    public function addSpot(\EscaleBundle\Entity\Spot $spots)
+    {
+        $this->spots[] = $spots;
+
+        return $this;
+    }
+
+    /**
+     * Remove spots
+     *
+     * @param \EscaleBundle\Entity\Spot $spots
+     */
+    public function removeSpot(\EscaleBundle\Entity\Spot $spots)
+    {
+        $this->spots->removeElement($spots);
+    }
+
+    /**
+     * Get spots
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSpots()
+    {
+        return $this->spots;
     }
 }

@@ -92,5 +92,5 @@ EscaleBundle\Entity\Service:
     manyToMany:
         spots:
             targetEntity: EscaleBundle\Entity\Spot
-            mappedBy: services
+            mappedBy: service
     lifecycleCallbacks: {  }

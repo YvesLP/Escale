@@ -9,4 +9,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Service
 {
+
+    public function __toString()
+    {
+        return $this->getServNom();
+    }
+
+    //
+    //  CODE AUTO-GENERE
+    //
+
+
 }

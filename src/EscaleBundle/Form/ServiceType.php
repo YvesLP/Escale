@@ -23,7 +23,7 @@ class ServiceType extends AbstractType
             ->add('servEmail')
             ->add('servTel')
             ->add('servAdr')
-            ->add('servAdr2')
+//            ->add('servAdr2')
             ->add('servCp')
             ->add('servVille')
             ->add('servPays')
@@ -32,6 +32,18 @@ class ServiceType extends AbstractType
             ->add('servSite')
             ->add('servLikes')
             ->add('servIduser')
+/*            ->add('servIduser', EntityType::class, array(
+                'class' => 'EscaleBundle:User',
+                'query_builder' => function (EntityRepository $er)
+                {
+                    return $er->createQueryBuilder('u')
+                        ->where('u.userPro = :bool')
+                        ->setParameter('bool', true)
+//                        ->orderBy('u.userPseudo', 'ASC')
+                        ;
+                },
+                'choice_label' => 'Pseudonyme',
+            ))*/
             ->add('servIdcat')
             ->add('spots')
         ;
@@ -46,4 +58,5 @@ class ServiceType extends AbstractType
             'data_class' => 'EscaleBundle\Entity\Service'
         ));
     }
+   
 }

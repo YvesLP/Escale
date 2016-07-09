@@ -77,6 +77,7 @@ class ServiceController extends Controller
         $editForm = $this->createForm('EscaleBundle\Form\ServiceType', $service);
         $editForm->handleRequest($request);
 
+
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($service);

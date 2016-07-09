@@ -9,13 +9,24 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Spot
 {
+
+    public function __toString()
+    {
+        return $this->getSpotNom();
+    }
+
+    //
+    //  CODE AUTO-GENERE
+    //
+
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
     /**
-     * @var bool
+     * @var boolean
      */
     private $spotEtat;
 
@@ -55,10 +66,28 @@ class Spot
     private $spotSite;
 
     /**
-     * @var int
+     * @var integer
      */
     private $spotLikes;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $services;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $sports;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->services = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->sports = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -276,18 +305,6 @@ class Spot
     {
         return $this->spotLikes;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $services;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->services = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add services
@@ -320,5 +337,38 @@ class Spot
     public function getServices()
     {
         return $this->services;
+    }
+
+    /**
+     * Add sports
+     *
+     * @param \EscaleBundle\Entity\Sport $sports
+     * @return Spot
+     */
+    public function addSport(\EscaleBundle\Entity\Sport $sports)
+    {
+        $this->sports[] = $sports;
+
+        return $this;
+    }
+
+    /**
+     * Remove sports
+     *
+     * @param \EscaleBundle\Entity\Sport $sports
+     */
+    public function removeSport(\EscaleBundle\Entity\Sport $sports)
+    {
+        $this->sports->removeElement($sports);
+    }
+
+    /**
+     * Get sports
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSports()
+    {
+        return $this->sports;
     }
 }

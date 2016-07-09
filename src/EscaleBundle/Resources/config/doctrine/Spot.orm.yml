@@ -49,5 +49,7 @@ EscaleBundle\Entity\Spot:
     manyToMany:
         services:
             targetEntity: EscaleBundle\Entity\Service
-            mappedBy: spots
+        sports:
+            targetEntity: EscaleBundle\Entity\Sport
+            mappedBy: spot
     lifecycleCallbacks: {  }

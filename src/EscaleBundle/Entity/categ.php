@@ -9,8 +9,19 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class categ
 {
+
+    public function __toString()
+    {
+        return $this->getCatLib();
+    }
+
+    //
+    //  CODE AUTO-GENERE
+    //
+    
+ 
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 

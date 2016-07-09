@@ -11,4 +11,8 @@
 /bin/
 /composer.phar
 .idea
-
+/web/uploads/picto_categ/
+/web/uploads/picto_sport/
+/web/uploads/service/
+/web/uploads/spot/
+/web/uploads/user/

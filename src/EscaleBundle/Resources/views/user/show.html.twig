@@ -1,64 +1,64 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>User</h1>
+    <h1>{{ user.userPseudo }}</h1>
 
     <table>
         <tbody>
+            {#<tr>#}
+                {#<th>Id</th>#}
+                {#<td>{{ user.id }}</td>#}
+            {#</tr>#}
             <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
+                <th>Professionnel (O/N)</th>
+                <td>{% if user.userPro %}Oui{% else %}Non{% endif %}</td>
             </tr>
             <tr>
-                <th>Userpro</th>
-                <td>{% if user.userPro %}Yes{% else %}No{% endif %}</td>
+                <th>Pseudonyme</th>
+                <td>{{ user.userPseudo }}</td>
             </tr>
             <tr>
-                <th>User</th>
-                <td>{{ user.user }}</td>
-            </tr>
-            <tr>
-                <th>Usernom</th>
+                <th>Nom</th>
                 <td>{{ user.userNom }}</td>
             </tr>
             <tr>
-                <th>Userprenom</th>
+                <th>Prénom</th>
                 <td>{{ user.userPrenom }}</td>
             </tr>
             <tr>
-                <th>Usersoc</th>
+                <th>Société</th>
                 <td>{{ user.userSoc }}</td>
             </tr>
             <tr>
-                <th>Useremail</th>
+                <th>Email</th>
                 <td>{{ user.userEmail }}</td>
             </tr>
             <tr>
-                <th>Usertel</th>
+                <th>Téléphone</th>
                 <td>{{ user.userTel }}</td>
             </tr>
             <tr>
-                <th>Useradr</th>
+                <th>Adresse</th>
                 <td>{{ user.userAdr }}</td>
             </tr>
+            {#<tr>#}
+                {#<th>Useradr2</th>#}
+                {#<td>{{ user.userAdr2 }}</td>#}
+            {#</tr>#}
             <tr>
-                <th>Useradr2</th>
-                <td>{{ user.userAdr2 }}</td>
-            </tr>
-            <tr>
-                <th>Usercp</th>
+                <th>Code postal</th>
                 <td>{{ user.userCp }}</td>
             </tr>
             <tr>
-                <th>Userville</th>
+                <th>Ville</th>
                 <td>{{ user.userVille }}</td>
             </tr>
             <tr>
-                <th>Userpays</th>
+                <th>Pays</th>
                 <td>{{ user.userPays }}</td>
             </tr>
             <tr>
-                <th>Userphoto</th>
+                <th>Photo</th>
                 <td>{{ user.userPhoto }}</td>
             </tr>
         </tbody>
@@ -66,10 +66,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('admin_user_index') }}">Back to the list</a>
+            <a href="{{ path('admin_user_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('admin_user_edit', { 'id': user.id }) }}">Edit</a>
+            <a href="{{ path('admin_user_edit', { 'id': user.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

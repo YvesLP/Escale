@@ -16,14 +16,14 @@ class UserType extends AbstractType
     {
         $builder
             ->add('userPro')
-            ->add('user')
+            ->add('userPseudo')
             ->add('userNom')
             ->add('userPrenom')
             ->add('userSoc')
             ->add('userEmail')
             ->add('userTel')
             ->add('userAdr')
-            ->add('userAdr2')
+//            ->add('userAdr2')
             ->add('userCp')
             ->add('userVille')
             ->add('userPays')
