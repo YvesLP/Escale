@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Spot list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Spotetat</th>
+                <th>Spotnom</th>
+                <th>Spotgpslat</th>
+                <th>Spotgpslng</th>
+                <th>Spotadr</th>
+                <th>Spotphoto</th>
+                <th>Spotdesc</th>
+                <th>Spotsite</th>
+                <th>Spotlikes</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for spot in spots %}
+            <tr>
+                <td><a href="{{ path('admin_spot_show', { 'id': spot.id }) }}">{{ spot.id }}</a></td>
+                <td>{% if spot.spotEtat %}Yes{% else %}No{% endif %}</td>
+                <td>{{ spot.spotNom }}</td>
+                <td>{{ spot.spotGpsLat }}</td>
+                <td>{{ spot.spotGpsLng }}</td>
+                <td>{{ spot.spotAdr }}</td>
+                <td>{{ spot.spotPhoto }}</td>
+                <td>{{ spot.spotDesc }}</td>
+                <td>{{ spot.spotSite }}</td>
+                <td>{{ spot.spotLikes }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_spot_show', { 'id': spot.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_spot_edit', { 'id': spot.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_spot_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

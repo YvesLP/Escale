@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Service list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Servetat</th>
+                <th>Servnom</th>
+                <th>Servgpslat</th>
+                <th>Servgpslng</th>
+                <th>Servinfos</th>
+                <th>Servemail</th>
+                <th>Servtel</th>
+                <th>Servadr</th>
+                <th>Servadr2</th>
+                <th>Servcp</th>
+                <th>Servville</th>
+                <th>Servpays</th>
+                <th>Servphoto</th>
+                <th>Servdesc</th>
+                <th>Servsite</th>
+                <th>Servlikes</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for service in services %}
+            <tr>
+                <td><a href="{{ path('admin_service_show', { 'id': service.id }) }}">{{ service.id }}</a></td>
+                <td>{% if service.servEtat %}Yes{% else %}No{% endif %}</td>
+                <td>{{ service.servNom }}</td>
+                <td>{{ service.servGpsLat }}</td>
+                <td>{{ service.servGpsLng }}</td>
+                <td>{{ service.servInfos }}</td>
+                <td>{{ service.servEmail }}</td>
+                <td>{{ service.servTel }}</td>
+                <td>{{ service.servAdr }}</td>
+                <td>{{ service.servAdr2 }}</td>
+                <td>{{ service.servCp }}</td>
+                <td>{{ service.servVille }}</td>
+                <td>{{ service.servPays }}</td>
+                <td>{{ service.servPhoto }}</td>
+                <td>{{ service.servDesc }}</td>
+                <td>{{ service.servSite }}</td>
+                <td>{{ service.servLikes }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_service_show', { 'id': service.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_service_edit', { 'id': service.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_service_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,53 @@
+EscaleBundle\Entity\Spot:
+    type: entity
+    table: null
+    repositoryClass: EscaleBundle\Repository\SpotRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        spotEtat:
+            type: boolean
+            column: spot_etat
+        spotNom:
+            type: string
+            length: '100'
+            column: spot_nom
+        spotGpsLat:
+            type: string
+            length: '15'
+            column: spot_gps_lat
+        spotGpsLng:
+            type: string
+            length: '15'
+            column: spot_gps_lng
+        spotAdr:
+            type: string
+            length: 255
+            nullable: true
+            column: spot_adr
+        spotPhoto:
+            type: string
+            length: '50'
+            nullable: true
+            column: spot_photo
+        spotDesc:
+            type: text
+            column: spot_desc
+        spotSite:
+            type: string
+            length: 255
+            nullable: true
+            column: spot_site
+        spotLikes:
+            type: integer
+            nullable: true
+            column: spot_likes
+    manyToMany:
+        services:
+            targetEntity: EscaleBundle\Entity\Service
+            mappedBy: spots
+    lifecycleCallbacks: {  }

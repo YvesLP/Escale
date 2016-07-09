@@ -1,3 +1,27 @@
+escale_admin_user:
+    resource: "@EscaleBundle/Resources/config/routing/user.yml"
+    prefix:   /admin/user
+
+escale_admin_categ:
+    resource: "@EscaleBundle/Resources/config/routing/categ.yml"
+    prefix:   /admin/categ
+
+escale_admin_service:
+    resource: "@EscaleBundle/Resources/config/routing/service.yml"
+    prefix:   /admin/service
+
+escale_admin_spot:
+    resource: "@EscaleBundle/Resources/config/routing/spot.yml"
+    prefix:   /admin/spot
+
+escale_admin_sport:
+    resource: "@EscaleBundle/Resources/config/routing/sport.yml"
+    prefix:   /admin/sport
+
+escale_visite:
+    resource: "@EscaleBundle/Resources/config/routing/visite.yml"
+    prefix:   /visite
+
 escale_homepage:
     path:     /
     defaults: { _controller: EscaleBundle:Default:index }

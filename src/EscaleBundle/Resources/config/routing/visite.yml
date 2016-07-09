@@ -1,0 +1,24 @@
+visite_index:
+    path:     /
+    defaults: { _controller: "EscaleBundle:Visite:index" }
+    methods:  GET
+
+visite_show:
+    path:     /{id}/show
+    defaults: { _controller: "EscaleBundle:Visite:show" }
+    methods:  GET
+
+visite_new:
+    path:     /new
+    defaults: { _controller: "EscaleBundle:Visite:new" }
+    methods:  [GET, POST]
+
+visite_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EscaleBundle:Visite:edit" }
+    methods:  [GET, POST]
+
+visite_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EscaleBundle:Visite:delete" }
+    methods:  DELETE

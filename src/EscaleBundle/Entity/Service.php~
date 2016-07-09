@@ -1,0 +1,12 @@
+<?php
+
+namespace EscaleBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Service
+ */
+class Service
+{
+}

@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>User list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Userpro</th>
+                <th>User</th>
+                <th>Usernom</th>
+                <th>Userprenom</th>
+                <th>Usersoc</th>
+                <th>Useremail</th>
+                <th>Usertel</th>
+                <th>Useradr</th>
+                <th>Useradr2</th>
+                <th>Usercp</th>
+                <th>Userville</th>
+                <th>Userpays</th>
+                <th>Userphoto</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td><a href="{{ path('admin_user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                <td>{% if user.userPro %}Yes{% else %}No{% endif %}</td>
+                <td>{{ user.user }}</td>
+                <td>{{ user.userNom }}</td>
+                <td>{{ user.userPrenom }}</td>
+                <td>{{ user.userSoc }}</td>
+                <td>{{ user.userEmail }}</td>
+                <td>{{ user.userTel }}</td>
+                <td>{{ user.userAdr }}</td>
+                <td>{{ user.userAdr2 }}</td>
+                <td>{{ user.userCp }}</td>
+                <td>{{ user.userVille }}</td>
+                <td>{{ user.userPays }}</td>
+                <td>{{ user.userPhoto }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_user_show', { 'id': user.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_user_edit', { 'id': user.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_user_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

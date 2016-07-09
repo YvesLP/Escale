@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Sport</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sport.id }}</td>
+            </tr>
+            <tr>
+                <th>Sportetat</th>
+                <td>{% if sport.sportEtat %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Sportlib</th>
+                <td>{{ sport.sportLib }}</td>
+            </tr>
+            <tr>
+                <th>Sportpicto</th>
+                <td>{{ sport.sportPicto }}</td>
+            </tr>
+            <tr>
+                <th>Sportphoto</th>
+                <td>{{ sport.sportPhoto }}</td>
+            </tr>
+            <tr>
+                <th>Sportsite</th>
+                <td>{{ sport.sportSite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_sport_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_sport_edit', { 'id': sport.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

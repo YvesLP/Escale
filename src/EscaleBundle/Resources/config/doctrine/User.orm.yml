@@ -1,0 +1,75 @@
+EscaleBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: EscaleBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        userPro:
+            type: boolean
+            column: user_pro
+        user:
+            type: string
+            length: '50'
+            unique: true
+            column: user_pseudo
+        userNom:
+            type: string
+            length: '50'
+            column: user_nom
+        userPrenom:
+            type: string
+            length: '50'
+            column: user_prenom
+        userSoc:
+            type: string
+            length: '100'
+            nullable: true
+            column: user_soc
+        userEmail:
+            type: string
+            length: '100'
+            nullable: true
+            column: user_email
+        userTel:
+            type: string
+            length: '30'
+            nullable: true
+            column: user_tel
+        userAdr:
+            type: string
+            length: '100'
+            nullable: true
+            column: user_adr
+        userAdr2:
+            type: string
+            length: '100'
+            nullable: true
+            column: user_adr2
+        userCp:
+            type: string
+            length: '20'
+            column: user_cp
+        userVille:
+            type: string
+            length: '50'
+            column: user_ville
+        userPays:
+            type: string
+            length: '50'
+            nullable: true
+            column: user_pays
+        userPhoto:
+            type: string
+            length: '50'
+            nullable: true
+            column: user_photo
+    manyToMany:
+        sports:
+            targetEntity: EscaleBundle\Entity\Sport
+            mappedBy: users
+    lifecycleCallbacks: {  }

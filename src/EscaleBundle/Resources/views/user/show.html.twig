@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>User</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Userpro</th>
+                <td>{% if user.userPro %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>User</th>
+                <td>{{ user.user }}</td>
+            </tr>
+            <tr>
+                <th>Usernom</th>
+                <td>{{ user.userNom }}</td>
+            </tr>
+            <tr>
+                <th>Userprenom</th>
+                <td>{{ user.userPrenom }}</td>
+            </tr>
+            <tr>
+                <th>Usersoc</th>
+                <td>{{ user.userSoc }}</td>
+            </tr>
+            <tr>
+                <th>Useremail</th>
+                <td>{{ user.userEmail }}</td>
+            </tr>
+            <tr>
+                <th>Usertel</th>
+                <td>{{ user.userTel }}</td>
+            </tr>
+            <tr>
+                <th>Useradr</th>
+                <td>{{ user.userAdr }}</td>
+            </tr>
+            <tr>
+                <th>Useradr2</th>
+                <td>{{ user.userAdr2 }}</td>
+            </tr>
+            <tr>
+                <th>Usercp</th>
+                <td>{{ user.userCp }}</td>
+            </tr>
+            <tr>
+                <th>Userville</th>
+                <td>{{ user.userVille }}</td>
+            </tr>
+            <tr>
+                <th>Userpays</th>
+                <td>{{ user.userPays }}</td>
+            </tr>
+            <tr>
+                <th>Userphoto</th>
+                <td>{{ user.userPhoto }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_user_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_user_edit', { 'id': user.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

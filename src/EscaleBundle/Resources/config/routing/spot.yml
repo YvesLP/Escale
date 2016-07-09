@@ -1,0 +1,24 @@
+admin_spot_index:
+    path:     /
+    defaults: { _controller: "EscaleBundle:Spot:index" }
+    methods:  GET
+
+admin_spot_show:
+    path:     /{id}/show
+    defaults: { _controller: "EscaleBundle:Spot:show" }
+    methods:  GET
+
+admin_spot_new:
+    path:     /new
+    defaults: { _controller: "EscaleBundle:Spot:new" }
+    methods:  [GET, POST]
+
+admin_spot_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EscaleBundle:Spot:edit" }
+    methods:  [GET, POST]
+
+admin_spot_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EscaleBundle:Spot:delete" }
+    methods:  DELETE
