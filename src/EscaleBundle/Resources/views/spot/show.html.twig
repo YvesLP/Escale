@@ -33,7 +33,10 @@
             </tr>
             <tr>
                 <th>Photo</th>
-                <td>{{ spot.spotPhoto }}</td>
+                {#<td>{{ spot.spotPhoto }}</td>#}
+                <td>
+                    <img class="image_spot" src="{{ asset('uploads/spot/') }}{{ spot.spotPhoto }}">
+                </td>
             </tr>
             <tr>
                 <th>Description</th>

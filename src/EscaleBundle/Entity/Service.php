@@ -20,6 +20,7 @@ class Service
     //
 
 
+
     /**
      * @var integer
      */
@@ -115,18 +116,6 @@ class Service
      */
     private $servIdcat;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $spots;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->spots = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -550,6 +539,18 @@ class Service
     public function getServIdcat()
     {
         return $this->servIdcat;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $spots;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->spots = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

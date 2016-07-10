@@ -79,6 +79,16 @@ class SpotController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            if($editForm->get('phPhoto')->getData() != null) {
+                if($spot->getSpotPhoto() != null) {
+                    unlink(__DIR__.'/../../../web/uploads/spot/'.$spot->getSpotPhoto());
+                    $spot->setSpotPhoto(null);
+                }
+            }
+
+            $spot->preUpload();
+
             $em->persist($spot);
             $em->flush();
 

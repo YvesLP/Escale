@@ -21,8 +21,10 @@
                 {#<td><a href="{{ path('admin_sport_show', { 'id': sport.id }) }}">{{ sport.id }}</a></td>#}
                 <td>{% if sport.sportEtat %}Actif{% else %}Inactif{% endif %}</td>
                 <td>{{ sport.sportLib }}</td>
-                <td>{{ sport.sportPicto }}</td>
-                <td>{{ sport.sportPhoto }}</td>
+                {#<td>{{ sport.sportPicto }}</td>#}
+                <td><img class="image_picto_sport" src="{{ asset('uploads/picto_sport/')}}{{ sport.sportPicto }}"></td>
+                {#<td>{{ sport.sportPhoto }}</td>#}
+                <td><img class="image_sport" src="{{ asset('uploads/picto_sport/')}}{{ sport.sportPhoto }}"></td>
                 <td>{{ sport.sportSite }}</td>
                 <td>
                     <ul>

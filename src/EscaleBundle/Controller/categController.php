@@ -79,6 +79,16 @@ class categController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            if($editForm->get('phPicto')->getData() != null) {
+                if($categ->getCatPicto() != null) {
+                    unlink(__DIR__.'/../../../web/uploads/picto_categ/'.$categ->getCatPicto());
+                    $categ->setCatPicto(null);
+                }
+            }
+
+            $categ->preUpload();
+
             $em->persist($categ);
             $em->flush();
 

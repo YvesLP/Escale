@@ -1,0 +1,15 @@
+# EscaleBundle/Resources/config/validation.yml
+EscaleBundle\Entity\Sport:
+    properties:
+        phPicto:
+            - Image: ~
+        phPhoto:
+            - Image: ~
+EscaleBundle\Entity\Spot:
+    properties:
+        phPhoto:
+            - Image: ~
+EscaleBundle\Entity\categ:
+    properties:
+        phPicto:
+            - Image: ~
