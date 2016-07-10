@@ -11,15 +11,97 @@
     </div>
 
     <div id="map" style="height: 40%"></div>
-    <div class="container">
-        
+
+    <div class="container row1">
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/sample-1.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/sample-1.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/sample-1.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="row row2">
+
+        <h3 style="text-align: center">Indiques les dates de présences sur ce spot et pourquoi pas communiquer l'information à ta communauté.</h3>
+        <div class="row date_picker" style="margin-top: 70px">
+            <div class="col m4 s6 offset-m1">
+                <label style="color: white; font-size: 16px">Arrivée</label>
+                <input type="date" class="datepicker">
+            </div>
+            <div class="col m4 s6">
+                <label style="color: white; font-size: 16px">Départ</label>
+                <input type="date" class="datepicker">
+            </div>
+            <div class="col m2 s4">
+                <a class="waves-effect waves-light btn btn_page3" style="position: relative; bottom: -35px; width: 250px; background-color: #D55449; color: white;">button</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s4 offset-s1">
+                <p>
+                    <input type="checkbox" id="test6" checked="checked" />
+                    <label for="test6">Yellow</label>
+                </p>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
 
 
 {% block javascripts %}
 
     {{ parent() }}
+
+    <script>
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+    </script>
+
     <script>
         function initMap() {
 
@@ -38,8 +120,7 @@
             });
 
             var image = {
-                url: '{{ asset('uploads/picto_categ/Picto_5781a6cdd8659.png') }}',
-                size: new google.maps.Size(100, 40)
+                url: '{{ asset('uploads/picto_categ/Velo.png') }}'
             };
 
             var marker = new google.maps.Marker({
