@@ -30,8 +30,9 @@ h2{
     font-family: "Roboto", sans-serif;
     font-size: 35px;
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    color: #D55449;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 h3{
     font-family: "Roboto", sans-serif;
@@ -39,9 +40,9 @@ h3{
 }
 h4{
     font-family: "Roboto", sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 5px;
 }
 
@@ -190,6 +191,10 @@ nav{
     background-color: #897C72;
 }
 
+.meteo{
+    align-content: center;
+}
+
 /* ////////////////////////////////////////// */
 /* /////////     CUSTOM VIDEO     //////////  */
 /* ////////////////////////////////////////// */
@@ -247,6 +252,10 @@ video {
     text-align: center;
     margin-top: 25px;
     color: white;
+}
+
+.btn_jyvais{
+    background-color: #D55449;
 }
 
 @media screen and (max-width: 960px) {
