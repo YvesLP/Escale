@@ -5,6 +5,16 @@
     <input id="pac-input" class="controls" type="text" value="{% if location is not null %}{{ location }}{% endif %}" placeholder="Rechercher un spot">
     <a href="{{ path('map') }}"><button id="geolocalisation_button">Me localiser</button></a>
     <button id="googlemap">rechercher</button>
+
+    <div id="pm_menu" class="pm_close">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
     <div id="map"></div>
 
 {% endblock %}
@@ -61,7 +71,6 @@
             });
 
             {% for spot in spots %}
-
                 var myLatLng = {
                     lat: {{ spot.spotGpsLat }},
                     lng: {{ spot.spotGpsLng }}
@@ -164,7 +173,6 @@
             // [END region_getplaces]
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDn52jFrq8R0F1RoukKhtsjINbPDa1v984&libraries=places&callback=initAutocomplete"
-    async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDn52jFrq8R0F1RoukKhtsjINbPDa1v984&libraries=places&callback=initAutocomplete" async defer></script>
 
 {% endblock %}

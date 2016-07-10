@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Escale...!{% endblock %}</title>
@@ -8,6 +8,9 @@
 
             {# Appel Materialize CSS #}
             {#<link rel="stylesheet" href="{{ asset('bundles/escale/css/materialize.css') }}">#}
+
+             {#Appel Side Menu CSS#}
+            <link rel="stylesheet" href="{{ asset('bundles/escale/css/pushmenu.css') }}">
 
             {# Appel CSS perso #}
             <link rel="stylesheet" href="{{ asset('bundles/escale/css/style.css') }}">
@@ -32,8 +35,8 @@
             {# Appel Materialize JS #}
             {#<script src="{{ asset('bundles/escale/js/materialize.min.js') }}"></script>#}
 
-            {# Appel JS Google Map #}
-            {#<script src="{{ asset('bundles/escale/js/map.js') }}"></script>#}
+            {#Appel JS Side Menu#}
+            <script src="{{ asset('bundles/escale/js/pushmenu.js') }}"></script>
 
         {% endblock %}
     </body>
