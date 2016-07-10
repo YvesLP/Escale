@@ -1,16 +1,137 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Service creation</h1>
+    <h1>Créer un service</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    <div class="row">
+        <div class="col s6 offset-s3">
+            {{ form_start(form, { 'attr': {'class': 'form_create col s12'} }) }}
+
+            <p>
+                <input type="checkbox" id="servEtat" />
+                {{ form_widget(form.servEtat) }}
+                <label for="servEtat">Activer le service</label>
+            </p>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.servNom) }}
+                    {{ form_errors(form.servNom) }}
+                    {{ form_widget(form.servNom) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.servGpsLat) }}
+                    {{ form_errors(form.servGpsLat) }}
+                    {{ form_widget(form.servGpsLat) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.servGpsLng) }}
+                    {{ form_errors(form.servGpsLng) }}
+                    {{ form_widget(form.servGpsLng) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.servInfos) }}
+                    {{ form_errors(form.servInfos) }}
+                    {{ form_widget(form.servInfos) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.servEmail) }}
+                    {{ form_errors(form.servEmail) }}
+                    {{ form_widget(form.servEmail) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.servTel) }}
+                    {{ form_errors(form.servTel) }}
+                    {{ form_widget(form.servTel) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.servAdr) }}
+                    {{ form_errors(form.servAdr) }}
+                    {{ form_widget(form.servAdr) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.servCp) }}
+                    {{ form_errors(form.servCp) }}
+                    {{ form_widget(form.servCp) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.servVille) }}
+                    {{ form_errors(form.servVille) }}
+                    {{ form_widget(form.servVille) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.servPays) }}
+                    {{ form_errors(form.servPays) }}
+                    {{ form_widget(form.servPays) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.servPhoto) }}
+                    {{ form_errors(form.servPhoto) }}
+                    {{ form_widget(form.servPhoto) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.servDesc) }}
+                    {{ form_errors(form.servDesc) }}
+                    {{ form_widget(form.servDesc) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.servSite) }}
+                    {{ form_errors(form.servSite) }}
+                    {{ form_widget(form.servSite) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.servLikes) }}
+                    {{ form_errors(form.servLikes) }}
+                    {{ form_widget(form.servLikes) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                    {{ form_label(form.servIduser) }}
+                    {{ form_errors(form.servIduser) }}
+                    {{ form_widget(form.servIduser) }}
+            </div>
+            <div class="input-field col s12">
+                    {{ form_label(form.servIdcat) }}
+                    {{ form_errors(form.servIdcat) }}
+                    {{ form_widget(form.servIdcat) }}
+            </div>
+            <div class="input-field col s12">
+                    {{ form_label(form.spots) }}
+                    {{ form_errors(form.spots) }}
+                    {{ form_widget(form.spots) }}
+            </div>
+
+            <div class="form_bouton">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Créer le service
+                    <i class="material-icons right"></i>
+                </button>
+                <a class="waves-effect waves-light btn" href="{{ path('admin_service_index') }}">Retour à la liste des services</a>
+            </div>
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_service_index') }}">Retour à la liste</a>
-        </li>
-    </ul>
 {% endblock %}
