@@ -22,6 +22,6 @@ escale_visite:
     resource: "@EscaleBundle/Resources/config/routing/visite.yml"
     prefix:   /visite
 
-escale_homepage:
-    path:     /
+map:
+    path:     /map
     defaults: { _controller: EscaleBundle:Default:index }
