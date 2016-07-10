@@ -23,20 +23,27 @@ body {
 /* ////////////////////////////////////////// */
 /* /////////     CUSTOM NAVBAR    //////////  */
 /* ////////////////////////////////////////// */
-
+nav{
+    height: 80px;
+}
 .nav_bar_logo{
     height: 100%;
 }
 .nav_bar_logo img{
     height:100%;
+    padding-bottom: 15px;
+    padding-top: 7px;
+    margin-left: 10px;
 }
 nav{
     background-color: #D55449;
 }
 .nav_bar_logo span{
     position: relative;
-    top: -23px;
+    margin-left: 10px;
+    top: -33px;
     left: -9px;
+    font-size: 23px;
 }
 @media screen and (max-width: 960px) {
     .nav_bar_logo span{
@@ -53,6 +60,7 @@ nav{
     font-family: exo2;
     font-size: 60px;
     text-align: center;
+    color: white;
 }
 
 .text_accroche span{
@@ -75,7 +83,7 @@ nav{
 }
 
 #pac-input{
-    border-right: 7px solid #D55449;
+    border-right: 3px solid #D55449;
     height: 40px;
 }
 .input_search{
@@ -92,6 +100,10 @@ nav{
     background-color: #D55449;
 }
 .get_map a{
+    font-family: exo2;
+}
+.input_search_place::-webkit-input-placeholder {
+    color: #D55449;
     font-family: exo2;
 }
 /* ////////////////////////////////////////// */
@@ -164,6 +176,7 @@ video {
     transform: translateX(-50%) translateY(-50%);
     background-size: cover;
     transition: 1s opacity;
+    opacity: 0.5;
 }
 
 .calque_home{
