@@ -20,6 +20,13 @@ html, body {
     /*background: #000;*/
 /*}*/
 
+h1{
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 /* ////////////////////////////////////////// */
 /* /////////     CUSTOM NAVBAR    //////////  */
 /* ////////////////////////////////////////// */
@@ -187,4 +194,18 @@ video {
 .calque_home{
     background-image: url("../images/2016-07-09.png");
     z-index: -50;
+}
+
+/* ////////////////////////////////////////// */
+/* /////////     CUSTOM FORM      //////////  */
+/* ////////////////////////////////////////// */
+
+/* Formulaire */
+
+.form_bouton{
+    text-align: center;
+    margin-top: 30px;
+}
+.form_bouton button, .form_bouton a{
+    margin-top: 40px;
 }
