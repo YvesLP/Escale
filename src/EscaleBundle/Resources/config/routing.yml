@@ -25,3 +25,7 @@ escale_visite:
 map:
     path:     /map
     defaults: { _controller: EscaleBundle:Default:index }
+
+map_show:
+    path:     /map/show
+    defaults: { _controller: EscaleBundle:Default:show }

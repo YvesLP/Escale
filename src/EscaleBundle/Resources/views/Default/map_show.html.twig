@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="row barre_de_recherche">
+        <div class="col m6 s12 offset-m3 input_search">
+            <input id="pac-input" class="controls" type="text" value="{% if location is not null %}{{ location }}{% endif %}" placeholder="Où ?">
+            <a href="{{ path('map') }}" id="geolocalisation_button" class="geolocalisation_button"><img src="{{ asset('bundles/escale/images/GeoLoc.jpg') }}"></a>
+            <a class="waves-effect waves-light btn get_map" id="googlemap">Rechercher</a>
+        </div>
+    </div>
+
+    <div id="map" style="height: 40%"></div>
+{% endblock %}
+
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script>
+        function initMap() {
+
+            var myLatLng6 = {lat: 46.7903464, lng: -2.083200799999};
+            var myLatLng1 = {lat: 46.8003464, lng: -2.083200799439};
+            var myLatLng2 = {lat: 46.7890093, lng: -2.084098000000};
+            var myLatLng3 = {lat: 46.7690087, lng: -2.084098000089};
+            var myLatLng4 = {lat: 46.7490046, lng: -2.084098000077};
+            var myLatLng5 = {lat: 46.7190067, lng: -2.084098000045};
+            var myLatLng = {lat: 46.79346400000001, lng: -2.0617862999999943};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: myLatLng
+            });
+
+            var marker = new google.maps.Marker({
+                position: myLatLng1,
+                title: 'plop!'
+            });
+            var marker1 = new google.maps.Marker({
+                position: myLatLng2,
+                title: 'plop1'
+            });
+            var marker2 = new google.maps.Marker({
+                position: myLatLng3,
+                title: 'plop2'
+            });
+            var marker3 = new google.maps.Marker({
+                position: myLatLng4,
+                title: 'plop6'
+            });
+            var marker4 = new google.maps.Marker({
+                position: myLatLng5,
+                title: 'plop9'
+            });
+            var marker5 = new google.maps.Marker({
+                position: myLatLng6,
+                title: 'plop10'
+            });
+
+            marker.setMap(map);
+            marker1.setMap(map);
+            marker2.setMap(map);
+            marker3.setMap(map);
+            marker4.setMap(map);
+            marker5.setMap(map);
+        }
+        </script>
+
+
+
+
+            {#{% for service in services %}#}
+
+            {#var myLatLng = {#}
+                {#lat: {{ service.servGpsLat }},#}
+                {#lng: {{ service.servGpsLng }}#}
+            {#};#}
+
+            {#var marker = new google.maps.Marker({#}
+                {#position: myLatLng,#}
+                {#map: map,#}
+                {#title: '{{ service.servNom }}'#}
+            {#});#}
+
+            {#var contentString =#}
+                    {#'<div class="row"><h2>{{ spot.spotNom }}</h2></div>' +#}
+                    {#'<div class="row">'+#}
+                    {#'<div class="col md6">'+#}
+                    {#'<img src="#"/>'+#}
+                    {#'</div>'+#}
+                    {#'<div class="col md6">'+#}
+                    {#'<p>{{ spot.spotDesc }}</p>'+#}
+                    {#'</div>'+#}
+                    {#'</div>'+#}
+                    {#'<div class="row">'+#}
+                    {#'<a class="waves-effect waves-light btn">J\'y vais !</a>'+#}
+                    {#'</div>'+#}
+                    {#'<div class="row">'+#}
+                    {#'<h3>Météo sur 3 jours:</h3>'+#}
+                    {#'<img src=""/>'+#}
+                    {#'</div>';#}
+
+            {#attachDescription(marker, contentString);#}
+
+            {#{% endfor %}#}
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDn52jFrq8R0F1RoukKhtsjINbPDa1v984&libraries=places&callback=initMap"
+            async defer>
+    </script>
+
+{% endblock %}
