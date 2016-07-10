@@ -65,32 +65,71 @@
     <div class="row row2">
 
         <h3 style="text-align: center">Indiques les dates de présences sur ce spot et pourquoi pas communiquer l'information à ta communauté.</h3>
-        <div class="row date_picker" style="margin-top: 70px">
-            <div class="col m4 s6 offset-m1">
-                <label style="color: white; font-size: 16px">Arrivée</label>
-                <input type="date" class="datepicker">
+
+        <form action="{{ path("visite_new") }}" method="post">
+            <div class="row date_picker" style="margin-top: 70px">
+                <div class="col m4 s6 offset-m1">
+                    <label style="color: white; font-size: 16px">Arrivée</label>
+                    <input type="date" name="start" class="datepicker">
+                </div>
+                <div class="col m4 s6">
+                    <label style="color: white; font-size: 16px">Départ</label>
+                    <input type="date" name="end" class="datepicker">
+                </div>
+                <div class="col m2 s4">
+                    <input type="submit" class="waves-effect waves-light btn btn_page3" style="position: relative; bottom: -35px; width: 250px; background-color: #D55449; color: white;">Valider</input>
+                </div>
             </div>
-            <div class="col m4 s6">
-                <label style="color: white; font-size: 16px">Départ</label>
-                <input type="date" class="datepicker">
+            <div class="row">
+                <div class="col s4 offset-s1">
+                    <p>
+                        <input type="checkbox" id="test6" checked="checked" />
+                        <label for="test6">Yellow</label>
+                    </p>
+                </div>
             </div>
-            <div class="col m2 s4">
-                <a class="waves-effect waves-light btn btn_page3" style="position: relative; bottom: -35px; width: 250px; background-color: #D55449; color: white;">button</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s4 offset-s1">
-                <p>
-                    <input type="checkbox" id="test6" checked="checked" />
-                    <label for="test6">Yellow</label>
-                </p>
-            </div>
-        </div>
+        </form>
     </div>
 
     <div class="row3">
-        
+        <div class="row">
+            <h3 style="color: black; text-align: center; font-family: exo2">
+                Ma communauté présente sur le spot
+            </h3>
+        </div>
+        <div class="row">
+            <div class="col m4">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+                        <div class="col s2">
+                            <img src="{{ asset('uploads/user/sur-le-tournage-brice-de-nice-3_3490324.jpg') }}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                        </div>
+                        <div class="col s10">
+                      <span class="black-text">
+                        Brice De nice
+                      </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col m4">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+                        <div class="col s2">
+                            <img src="{{ asset('uploads/user/zoom-surfeuses-roxy-pro.jpg') }}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                        </div>
+                        <div class="col s10">
+                      <span class="black-text">
+                        Roxy
+                      </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
 
 {% endblock %}
 
@@ -126,6 +165,25 @@
             var image = {
                 url: '{{ asset('uploads/picto_categ/Velo.png') }}'
             };
+            var image1 = {
+                url: '{{ asset('uploads/picto_sport/CerfVolant.png') }}'
+            };
+
+            var image2 = {
+                url: '{{ asset('uploads/picto_sport/HandPaddle.png') }}'
+            };
+
+            var image3 = {
+                url: '{{ asset('uploads/picto_sport/Kite.png') }}'
+            };
+
+            var image4 = {
+                url: '{{ asset('uploads/picto_sport/Surf.png') }}'
+            };
+
+            var image5 = {
+                url: '{{ asset('uploads/picto_sport/gite.png') }}'
+            };
 
             var marker = new google.maps.Marker({
                 position: myLatLng1,
@@ -134,23 +192,28 @@
             });
             var marker1 = new google.maps.Marker({
                 position: myLatLng2,
-                title: 'plop1'
+                title: 'plop1',
+                icon: image1
             });
             var marker2 = new google.maps.Marker({
                 position: myLatLng3,
-                title: 'plop2'
+                title: 'plop2',
+                icon: image2
             });
             var marker3 = new google.maps.Marker({
                 position: myLatLng4,
-                title: 'plop6'
+                title: 'plop6',
+                icon: image3
             });
             var marker4 = new google.maps.Marker({
                 position: myLatLng5,
-                title: 'plop9'
+                title: 'plop9',
+                icon: image4
             });
             var marker5 = new google.maps.Marker({
                 position: myLatLng6,
-                title: 'plop10'
+                title: 'plop10',
+                icon: image5
             });
 
             marker.setMap(map);
