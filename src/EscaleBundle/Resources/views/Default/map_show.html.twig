@@ -11,6 +11,9 @@
     </div>
 
     <div id="map" style="height: 40%"></div>
+    <div class="container">
+        
+    </div>
 {% endblock %}
 
 
@@ -21,21 +24,28 @@
         function initMap() {
 
             var myLatLng6 = {lat: 46.7903464, lng: -2.083200799999};
-            var myLatLng1 = {lat: 46.8003464, lng: -2.083200799439};
-            var myLatLng2 = {lat: 46.7890093, lng: -2.084098000000};
-            var myLatLng3 = {lat: 46.7690087, lng: -2.084098000089};
-            var myLatLng4 = {lat: 46.7490046, lng: -2.084098000077};
-            var myLatLng5 = {lat: 46.7190067, lng: -2.084098000045};
-            var myLatLng = {lat: 46.79346400000001, lng: -2.0617862999999943};
+            var myLatLng1 = {lat: 46.786695, lng: -2.043959};
+            var myLatLng2 = {lat: 46.784418, lng: -2.048776};
+            var myLatLng3 = {lat: 46.785907, lng: -2.057146};
+            var myLatLng4 = {lat: 46.784651, lng:  -2.057884};
+            var myLatLng5 = {lat: 46.783718, lng: -2.057667};
+            var myLatLng = {lat: 46.78573, lng: -2.059292};
 
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
-                center: myLatLng
+                zoom: 14,
+                center: myLatLng,
+                mapTypeId: google.maps.MapTypeId.SATELLITE
             });
+
+            var image = {
+                url: '{{ asset('uploads/picto_categ/Picto_5781a6cdd8659.png') }}',
+                size: new google.maps.Size(100, 40)
+            };
 
             var marker = new google.maps.Marker({
                 position: myLatLng1,
-                title: 'plop!'
+                title: 'plop!',
+                icon: image
             });
             var marker1 = new google.maps.Marker({
                 position: myLatLng2,
