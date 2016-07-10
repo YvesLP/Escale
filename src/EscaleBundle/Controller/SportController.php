@@ -79,6 +79,23 @@ class SportController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            if($editForm->get('phPhoto')->getData() != null) {
+                if($sport->getSportPhoto() != null) {
+                    unlink(__DIR__.'/../../../web/uploads/picto_sport/'.$sport->getSportPhoto());
+                    $sport->setSportPhoto(null);
+                }
+            }
+
+            if($editForm->get('phPicto')->getData() != null) {
+                if($sport->getSportPicto() != null) {
+                    unlink(__DIR__.'/../../../web/uploads/picto_sport/'.$sport->getSportPicto());
+                    $sport->setSportPicto(null);
+                }
+            }
+
+            $sport->preUpload();
+
             $em->persist($sport);
             $em->flush();
 

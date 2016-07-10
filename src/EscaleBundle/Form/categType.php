@@ -16,7 +16,8 @@ class categType extends AbstractType
     {
         $builder
             ->add('catLib')
-            ->add('catPicto')
+//            ->add('catPicto')
+            ->add('phPicto', 'file', array('label' => 'Pictogramme', 'required' => false))
         ;
     }
     

@@ -17,10 +17,13 @@ class SportType extends AbstractType
         $builder
             ->add('sportEtat')
             ->add('sportLib')
-            ->add('sportPicto')
-            ->add('sportPhoto')
+//            ->add('sportPicto')
+            ->add('phPicto', 'file', array('label' => 'Pictogramme', 'required' => false))
+            ->add('phPhoto', 'file', array('label' => 'Photo', 'required' => false))
+//            ->add('sportPhoto')
             ->add('sportSite')
             ->add('users')
+            ->add('spots')
         ;
     }
     

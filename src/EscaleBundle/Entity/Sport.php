@@ -15,6 +15,110 @@ class Sport
         return $this->getSportLib();
     }
 
+    public $phPhoto;
+    public $phPicto;
+
+    protected function getUploadDir()
+    {
+        return 'uploads/picto_sport';
+    }
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+
+    public function getWebPath_Photo()
+    {
+        return null === $this->sportPhoto ? null : $this->getUploadDir().'/'.$this->sportPhoto;
+    }
+    public function getAbsolutePath_Photo()
+    {
+        return null === $this->sportPhoto ? null : $this->getUploadRootDir().'/'.$this->sportPhoto;
+    }
+
+    public function getWebPath_Picto()
+    {
+        return null === $this->sportPicto ? null : $this->getUploadDir().'/'.$this->sportPicto;
+    }
+    public function getAbsolutePath_Picto()
+    {
+        return null === $this->sportPicto ? null : $this->getUploadRootDir().'/'.$this->sportPicto;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function preUpload()
+    {
+        if (null !== $this->phPhoto) {
+            // do whatever you want to generate a unique name
+            $this->sportPhoto = 'Ph_'.uniqid().'.'.$this->phPhoto->guessExtension();
+        }
+
+        if (null !== $this->phPicto) {
+            $this->sportPicto = 'Picto_'.uniqid().'.'.$this->phPicto->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        // Add your code here
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setExpiresAtValue()
+    {
+        // Add your code here
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAtValue()
+    {
+        // Add your code here
+    }
+
+    /**
+     * @ORM\PostPersist
+     */
+    public function upload()
+    {
+        if (null !== $this->phPhoto) {
+            // if there is an error when moving the file, an exception will
+            // be automatically thrown by move(). This will properly prevent
+            // the entity from being persisted to the database on error
+
+            $this->phPhoto->move($this->getUploadRootDir(), $this->sportPhoto);
+
+            unset($this->phPhoto);
+        }
+
+        if (null !== $this->phPicto) {
+            $this->phPicto->move($this->getUploadRootDir(), $this->sportPicto);
+            unset($this->phPicto);
+        }
+    }
+
+    /**
+     * @ORM\PostRemove
+     */
+    public function removeUpload()
+    {
+        if ($phPhoto = $this->getAbsolutePath_Photo()) {
+            unlink($phPhoto);
+        }
+
+        if ($phPicto = $this->getAbsolutePath_Picto()) {
+            unlink($phPicto);
+        }
+    }
+
     //
     //  CODE AUTO-GENERE
     //
@@ -258,4 +362,5 @@ class Sport
     {
         return $this->spots;
     }
+
 }

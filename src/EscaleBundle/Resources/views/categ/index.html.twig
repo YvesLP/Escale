@@ -17,7 +17,8 @@
             <tr>
                 {#<td><a href="{{ path('admin_categ_show', { 'id': categ.id }) }}">{{ categ.id }}</a></td>#}
                 <td>{{ categ.catLib }}</td>
-                <td>{{ categ.catPicto }}</td>
+                {#<td>{{ categ.catPicto }}</td>#}
+                <td><img class="image_picto_categ" src="{{ asset('uploads/picto_categ/')}}{{ categ.catPicto }}"></td>
                 <td>
                     <ul>
                         <li>

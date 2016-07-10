@@ -15,10 +15,91 @@ class Spot
         return $this->getSpotNom();
     }
 
+    public $phPhoto;
+
+    protected function getUploadDir()
+    {
+        return 'uploads/spot';
+    }
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+
+    public function getWebPath_Photo()
+    {
+        return null === $this->spotPhoto ? null : $this->getUploadDir().'/'.$this->spotPhoto;
+    }
+    public function getAbsolutePath_Photo()
+    {
+        return null === $this->spotPhoto ? null : $this->getUploadRootDir().'/'.$this->spotPhoto;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function preUpload()
+    {
+        if (null !== $this->phPhoto) {
+            // do whatever you want to generate a unique name
+            $this->spotPhoto = uniqid().'.'.$this->phPhoto->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        // Add your code here
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setExpiresAtValue()
+    {
+        // Add your code here
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAtValue()
+    {
+        // Add your code here
+    }
+
+    /**
+     * @ORM\PostPersist
+     */
+    public function upload()
+    {
+        if (null !== $this->phPhoto) {
+            // if there is an error when moving the file, an exception will
+            // be automatically thrown by move(). This will properly prevent
+            // the entity from being persisted to the database on error
+
+            $this->phPhoto->move($this->getUploadRootDir(), $this->spotPhoto);
+
+            unset($this->phPhoto);
+        }
+    }
+
+    /**
+     * @ORM\PostRemove
+     */
+    public function removeUpload()
+    {
+        if ($phPhoto = $this->getAbsolutePath_Photo()) {
+            unlink($phPhoto);
+        }
+    }
+
     //
     //  CODE AUTO-GENERE
     //
-
+    
 
     /**
      * @var integer
@@ -73,11 +154,6 @@ class Spot
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $services;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
     private $sports;
 
     /**
@@ -85,7 +161,6 @@ class Spot
      */
     public function __construct()
     {
-        $this->services = new \Doctrine\Common\Collections\ArrayCollection();
         $this->sports = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -307,39 +382,6 @@ class Spot
     }
 
     /**
-     * Add services
-     *
-     * @param \EscaleBundle\Entity\Service $services
-     * @return Spot
-     */
-    public function addService(\EscaleBundle\Entity\Service $services)
-    {
-        $this->services[] = $services;
-
-        return $this;
-    }
-
-    /**
-     * Remove services
-     *
-     * @param \EscaleBundle\Entity\Service $services
-     */
-    public function removeService(\EscaleBundle\Entity\Service $services)
-    {
-        $this->services->removeElement($services);
-    }
-
-    /**
-     * Get services
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getServices()
-    {
-        return $this->services;
-    }
-
-    /**
      * Add sports
      *
      * @param \EscaleBundle\Entity\Sport $sports
@@ -370,5 +412,43 @@ class Spot
     public function getSports()
     {
         return $this->sports;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $services;
+
+
+    /**
+     * Add services
+     *
+     * @param \EscaleBundle\Entity\Service $services
+     * @return Spot
+     */
+    public function addService(\EscaleBundle\Entity\Service $services)
+    {
+        $this->services[] = $services;
+
+        return $this;
+    }
+
+    /**
+     * Remove services
+     *
+     * @param \EscaleBundle\Entity\Service $services
+     */
+    public function removeService(\EscaleBundle\Entity\Service $services)
+    {
+        $this->services->removeElement($services);
+    }
+
+    /**
+     * Get services
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getServices()
+    {
+        return $this->services;
     }
 }

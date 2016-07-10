@@ -28,7 +28,8 @@
                 <td>{{ spot.spotGpsLat }}</td>
                 <td>{{ spot.spotGpsLng }}</td>
                 {#<td>{{ spot.spotAdr }}</td>#}
-                <td>{{ spot.spotPhoto }}</td>
+                {#<td>{{ spot.spotPhoto }}</td>#}
+                <td><img class="image_spot" src="{{ asset('uploads/spot/')}}{{ spot.spotPhoto }}"></td>
                 {#<td>{{ spot.spotDesc }}</td>#}
                 {#<td>{{ spot.spotSite }}</td>#}
                 <td>{{ spot.spotLikes }}</td>

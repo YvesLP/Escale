@@ -17,7 +17,10 @@
             </tr>
             <tr>
                 <th>Pictogramme</th>
-                <td>{{ categ.catPicto }}</td>
+                {#<td>{{ categ.catPicto }}</td>#}
+                <td>
+                    <img class="image_picto_categ" src="{{ asset('uploads/picto_categ/') }}{{ categ.catPicto }}">
+                </td>
             </tr>
         </tbody>
     </table>

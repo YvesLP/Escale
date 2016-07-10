@@ -21,11 +21,17 @@
             </tr>
             <tr>
                 <th>Pictogramme</th>
-                <td>{{ sport.sportPicto }}</td>
+                {#<td>{{ sport.sportPicto }}</td>#}
+                <td>
+                    <img class="image_picto_sport" src="{{ asset('uploads/picto_sport/') }}{{ sport.sportPicto }}">
+                </td>
             </tr>
             <tr>
                 <th>Photo</th>
-                <td>{{ sport.sportPhoto }}</td>
+                {#<td>{{ sport.sportPhoto }}</td>#}
+                <td>
+                    <img class="image_sport" src="{{ asset('uploads/picto_sport/') }}{{ sport.sportPhoto }}">
+                </td>
             </tr>
             <tr>
                 <th>Site communautaire</th>
