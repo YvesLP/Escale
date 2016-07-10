@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    <button id="geolocalisation_button">Me localiser</button>
+    {{ dump(location) }}
+    <input id="pac-input" class="controls" type="text" value="{% if location is not null %}{{ location }}{% endif %}" placeholder="Rechercher un spot">
+    <a href="{{ path('map') }}"><button id="geolocalisation_button">Me localiser</button></a>
+    <button id="googlemap">rechercher</button>
     <div id="map"></div>
 
 {% endblock %}
@@ -11,7 +12,40 @@
 {% block javascripts %}
 
     {{ parent() }}
+    <script>
+        function get_address(address){
+            if (address != ''){
+                var latitude = 0;
+                var longitude = 0;
+                var geocoder = new google.maps.Geocoder();
 
+                geocoder.geocode( { 'address': address}, function(results, status) {
+
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        latitude = results[0].geometry.location.lat();
+                        longitude = results[0].geometry.location.lng();
+                    }
+                });
+
+                var initialPositionMap= {
+                    lat: latitude, lng: longitude
+                };
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: initialPositionMap,
+                    zoom: 6
+                });
+            }
+        }
+        $(document).ready(function(){
+            var address = '{% if location is not null %}{{ location }}{% endif %}';
+            get_address(address);
+        });
+
+        $('#googlemap').on('click', function () {
+            var address = $('#pac-input').value;
+            get_address(address);
+        });
+    </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDn52jFrq8R0F1RoukKhtsjINbPDa1v984&libraries=places&callback=initAutocomplete"
     async defer></script>
 

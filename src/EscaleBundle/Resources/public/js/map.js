@@ -1,3 +1,4 @@
+
 //Initialisation de la map
 var map;
 
@@ -8,7 +9,7 @@ function initAutocomplete() {
     };
     map = new google.maps.Map(document.getElementById('map'), {
         center: initialPositionMap,
-        zoom: 6,
+        zoom: 6
     });
 
     // Try HTML5 Geolocation.
@@ -44,6 +45,7 @@ function initAutocomplete() {
 
     // Create the search box and link it to the UI element.
     var input = document.getElementById('pac-input');
+
     var searchBox = new google.maps.places.SearchBox(input);
 
     // Bias the SearchBox results towards current map's viewport.
