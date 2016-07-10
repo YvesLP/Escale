@@ -36,22 +36,21 @@ class VisiteController extends Controller
     public function newAction(Request $request)
     {
         $visite = new Visite();
-        $form = $this->createForm('EscaleBundle\Form\VisiteType', $visite);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($visite);
-            $em->flush();
+        $em = $this->getDoctrine()->getManager();
 
-            return $this->redirectToRoute('visite_show', array('id' => $visite->getId()));
-        }
+        $visite->setVisitStart($request->request->get('start'));
+        $visite->setVisitEnd($request->request->get('end'));
+        $visite->setVisitIduser(5);
+        $visite->setVisitIdspot(3);
 
-        return $this->render('EscaleBundle:visite:new.html.twig', array(
-            'visite' => $visite,
-            'form' => $form->createView(),
-        ));
+        $em->persist($visite);
+        $em->flush();
+
+        return $this->redirectToRoute('visite_show');
+
     }
+
 
     /**
      * Finds and displays a Visite entity.

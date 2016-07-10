@@ -44,7 +44,7 @@ class SpotController extends Controller
             $em->persist($spot);
             $em->flush();
 
-            return $this->redirectToRoute('admin_spot_show', array('id' => $spot->getId()));
+            return $this->redirectToRoute('map');
         }
 
         return $this->render('EscaleBundle:spot:new.html.twig', array(

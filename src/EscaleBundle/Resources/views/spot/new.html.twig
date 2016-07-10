@@ -1,16 +1,94 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Spot creation</h1>
+    <h1>Création de spot</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    <div class="row">
+        <div class="col s6 offset-s3">
+            {{ form_start(form, { 'attr': {'class': 'form_create col s12'} }) }}
+
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.spotEtat) }}
+                    {{ form_errors(form.spotEtat) }}
+                    {{ form_widget(form.spotEtat) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.spotNom) }}
+                    {{ form_errors(form.spotNom) }}
+                    {{ form_widget(form.spotNom) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.spotGpsLat) }}
+                    {{ form_errors(form.spotGpsLat) }}
+                    {{ form_widget(form.spotGpsLat) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.spotGpsLng) }}
+                    {{ form_errors(form.spotGpsLng) }}
+                    {{ form_widget(form.spotGpsLng) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.spotAdr) }}
+                    {{ form_errors(form.spotAdr) }}
+                    {{ form_widget(form.spotAdr) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.spotDesc) }}
+                    {{ form_errors(form.spotDesc) }}
+                    {{ form_widget(form.spotDesc) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.spotSite) }}
+                    {{ form_errors(form.spotSite) }}
+                    {{ form_widget(form.spotSite) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.spotLikes) }}
+                    {{ form_errors(form.spotLikes) }}
+                    {{ form_widget(form.spotLikes) }}
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <div class="row">
+                    {{ form_label(form.services) }}
+                    {{ form_errors(form.services) }}
+                    {{ form_widget(form.services) }}
+                </div>
+            </div>
+            <div class="col s12 file-field input-field">
+                <div class="btn">
+                    <span>Photo du spot</span>
+                    {{ form_errors(form.phPhoto) }}
+                    {{ form_widget(form.phPhoto) }}
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Ajouter une photo">
+                </div>
+            </div>
+            <div class="form_bouton">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Créer un spot
+                    <i class="material-icons right"></i>
+                </button>
+                <a class="waves-effect waves-light btn" href="{{ path('map') }}">Retour à la map</a>
+            </div>
+        </div>
+    </div>
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_spot_index') }}">Retour à la liste</a>
-        </li>
-    </ul>
 {% endblock %}
+
